@@ -7,3 +7,10 @@
 .user-img {
   padding: 0px 15px 15px 15px;
 }
+.carousel {
+  border: blue;
+}
+.front-picture {
+  height: 100px;
+  width: 100px;
+}
