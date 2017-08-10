@@ -57,10 +57,12 @@ router.route("/cities")
 
 router.route('/cities/1')
 .get(function(req, res) {
-  res.sendFile("views/post.html", {
-    root: __dirname
-  });
-  console.log(__dirname);
+  db.Post.find({}, function(err, allPosts) {
+    if (err) {
+      console.log(err);
+    }
+    res.json(allPosts);
+  })
 })
 .post(function(req, res) {
   let post = new db.Post();
@@ -71,7 +73,7 @@ router.route('/cities/1')
   post.save(function(err) {
     if (err)
       res.send(err);
-    res.json({ message: 'Post successfully created!' });
+    res.json(post);
   })
 })
 
