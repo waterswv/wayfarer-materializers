@@ -23,3 +23,6 @@ a.breadcrumb::before {
 .post-text {
   margin-top: 30px;
 }
+div.chip {
+  vertical-align: top;
+}
