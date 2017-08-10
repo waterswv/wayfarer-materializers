@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
+let db = require('./models');
 
 app.use(express.static(__dirname + "/public"));
 app.use(
@@ -28,6 +29,16 @@ app.use(function(req, res, next) {
 
 //ROUTES
 
+//HTML ENDPOINT
+app.get("/", function(req, res) {
+  res.sendFile("views/index.html", {
+    root: __dirname
+  });
+  console.log(__dirname);
+});
+
+//API ENDPOINTS
+
 //router config for calling the API
 app.use('/api', router);
 app.use('/', router);
@@ -35,13 +46,6 @@ app.use('/', router);
 // set route path and init API
 router.get('/', function(req, res){
   res.json({message: 'API Initialized'});
-});
-
-app.get("/", function(req, res) {
-  res.sendFile("views/index.html", {
-    root: __dirname
-  });
-  console.log(__dirname);
 });
 
 router.route("/cities")
@@ -53,11 +57,25 @@ router.route("/cities")
 
 router.route('/cities/1')
 .get(function(req, res) {
-  res.sendFile("views/post.html", {
-    root: __dirname
-  });
-  console.log(__dirname);
-});
+  db.Post.find({}, function(err, allPosts) {
+    if (err) {
+      console.log(err);
+    }
+    res.json(allPosts);
+  })
+})
+.post(function(req, res) {
+  let post = new db.Post();
+
+  post.title = req.body.title;
+  post.description = req.body.description;
+
+  post.save(function(err) {
+    if (err)
+      res.send(err);
+    res.json(post);
+  })
+})
 
 
 /************
