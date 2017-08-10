@@ -6,7 +6,7 @@
     <!-- STYLES: Materialize & Custom -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/src/css/styles.css">
+    <link rel="stylesheet" href="../public/src/css/styles.css">
 
     <!-- SCRIPTS: Materialize JS & jQuery CDNs -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -16,12 +16,13 @@
     <title>Wayfarer - SF</title>
   </head>
 
-  <body>
+  <body class="blue-grey lighten-4">
 
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper red lighten-1">
         <div class="row">
           <a href="#!" class="brand-logo"><i class="large material-icons">flight_land</i>Wayfarer</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="sass.html">Profile</a></li>
             <li><a href="sass.html">Log Out</a></li>
@@ -33,26 +34,34 @@
 
     <main>
         <!-- Individual Post Div -->
-        <div class="grey">
-          <div class="col s12">
+          <div class="breadcrumbs col s12">
             <a href="#!" class="breadcrumb">Home</a>
             <a href="#!" class="breadcrumb">Cities</a>
             <a href="#!" class="breadcrumb">San Francisco</a>
           </div>
 
-          <div class="container">
+        <div class="container">
+          <div class="post-text">
             <h5>How I used Slurp SF in San Francisco to find the best damn ramen of my life</h5>
-            <a href="#">
-              <div class="chip">
-                <img src="https://avatars1.githubusercontent.com/u/27825269?v=4&s=460" alt="Contact Person">
-                dalazaro
-              </div>
-            </a>
+            <div class="row user">
+              <a href="#">
+                <div class="chip">
+                  <img src="https://avatars1.githubusercontent.com/u/27825269?v=4&s=460" alt="Contact Person">
+                  dalazaro
+                </div>
+              </a>
+              <a href="#"><i class="small material-icons" title="Edit">edit</i></a>
+              <a href="#"><i class="small material-icons" title="Delete">delete</i></a>
+            </div>
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
             <h6><i>POSTED [AUG 1, 2017]</i></h6>
+
+
+
           </div>
         </div>
       </div>
