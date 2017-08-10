@@ -9,6 +9,6 @@ const UserSchema = new Schema({
   userCity: String // FIXME: id of the chosen city
 })
 
-const User = mongoose.model('User', CitySchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
