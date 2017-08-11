@@ -5,7 +5,7 @@ const UserSchema = new Schema({
   username: String,
   password: String,
   userImage: String,
-  joinDate: Date, // FIXME: is this the correct format?
+  joinDate: { type: Date, default: Date.now },
   userCity: String // FIXME: id of the chosen city
 })
 
