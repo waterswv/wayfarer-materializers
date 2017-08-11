@@ -75,7 +75,7 @@ router.route("/cities")
 .get(function index(req, res) {
   db.City.find({}, function(err, allCities) {
     if (err) res.send(err);
-    res.json(allCities);
+    res.json({cities: allCities});
   })
 })
 // Create new city
