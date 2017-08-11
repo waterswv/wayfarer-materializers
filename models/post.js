@@ -3,10 +3,7 @@ const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
   title: String, // FIXME: require character limit to 1-200 chars
-  description: {
-    type: String,
-    required: true
-  },
+  description: String,
   userAuthor: String,
   // postImage: String, TODO: don't need?
   postDate: { type: Date, default: Date.now }
