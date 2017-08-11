@@ -1,0 +1,29 @@
+{
+  "name": "wayfarer-materializers",
+  "version": "1.0.0",
+  "description": "Project Wayfarer (Team Materializers)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waterswv/wayfarer-materializers.git"
+  },
+  "author": "Daryl, Chris & Bryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waterswv/wayfarer-materializers/issues"
+  },
+  "homepage": "https://github.com/waterswv/wayfarer-materializers#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "jquery-ajax": "^2.1.4",
+    "mongoose": "^4.11.6",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "^1.0.11"
+  }
+}
