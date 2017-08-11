@@ -13,7 +13,7 @@ app.use(
 );
 
 // setting up port variable for displaying our current port in the console
-let port = process.env.API_PORT || 3001;
+let port = process.env.PORT || 3001;
 
 // Prevent CORS errors
 app.use(function(req, res, next) {
