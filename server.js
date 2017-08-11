@@ -60,7 +60,7 @@ router.get('/', function(req, res){
       {method: "DELETE", path: "/api/cities/:id", description: "Destroy one id-specified city"},
 
       // POSTS
-      {method: "GET", path: "/api/cities/:id/posts", description: "Show a list of posts in an id-specified city"},
+      {method: "GET", path: "/api/cities/:id/posts", description: "Show a list of posts for an id-specified city"},
       {method: "GET", path: "/api/cities/:city_id/posts/:post_id", description: "Show one id-specified post"},
       {method: "POST", path: "/api/cities/:id/posts", description: "Create a new post within an id-specified city"},
       {method: "PUT", path: "/api/cities/:city_id/posts/:post_id", description: "Update one id-specified post"},
@@ -134,7 +134,7 @@ router.route('/cities/:id')
 
 // POSTS ROUTES
 router.route("/cities/:id/posts")
-// Show a list of posts in an id-specified city
+// Show a list of posts for an id-specified city
 .get(function index(req, res) {
   db.City.findById(req.params.id, function(err, foundCity) {
     if (err) res.send(err);
@@ -184,14 +184,12 @@ router.route('/cities/:city_id/posts/:post_id')
       /* setting new title and description to whatever was changed; if nothing was changed we won't alter the field. */
       (req.body.title) ? correctPost.title = req.body.title : null;
       (req.body.description) ? correctPost.description = req.body.description : null;
-      // correctPost.title = req.body.title || null;
-      // correctPost.description = req.body.description || null;
       foundCity.save(function(err, saved) {
         console.log('UPDATED', correctPost, 'IN ', saved.cities);
         res.json(correctPost);
       });
     } else {
-      res.send(404);
+      res.send(err);
     }
   })
 })
@@ -204,7 +202,6 @@ router.route('/cities/:city_id/posts/:post_id')
     if (correctPost) {
       correctPost.remove();
       foundCity.save(function(err, saved) {
-        console.log('REMOVED ', correctPost.title, 'FROM ', saved.cities);
         res.json({ message: 'Post deleted!' });
       });
     } else {
