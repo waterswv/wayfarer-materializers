@@ -104,7 +104,7 @@ router.route('/cities/:id')
 
   db.City.findById(cityId, function(err, city) {
     if (err) res.send(err);
-    res.json(city);
+    res.json({city: city});
   })
 })
 // Update one id-specified city
@@ -139,7 +139,7 @@ router.route("/cities/:id/posts")
   db.City.findById(req.params.id, function(err, foundCity) {
     if (err) res.send(err);
     console.log("Responding with posts", foundCity.posts);
-    res.json(foundCity.posts);
+    res.json({posts: foundCity.posts});
   })
 })
 // Create a new post within an id-specified city
@@ -167,7 +167,7 @@ router.route('/cities/:city_id/posts/:post_id')
     console.log(foundCity);
     let correctPost = foundCity.posts.id(req.params.post_id);
     if (correctPost){
-      res.json(correctPost)
+      res.json({post: correctPost})
     } else {
       res.send(err);
     }
